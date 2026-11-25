@@ -110,6 +110,10 @@ namespace WhatsTheKey
         {
             _marker = marker;
 
+            // text can only be measured while the menu is active
+            transform.SetAsLastSibling();
+            gameObject.SetActive(true);
+
             foreach (var row in _rows)
                 Destroy(row);
             _rows.Clear();
@@ -127,8 +131,6 @@ namespace WhatsTheKey
             _rectTransform.anchoredPosition = localPosition;
             _rectTransform.localScale = Vector3.one;
 
-            transform.SetAsLastSibling();
-            gameObject.SetActive(true);
             LayoutRebuilder.ForceRebuildLayoutImmediate(_rectTransform);
         }
 
@@ -228,7 +230,10 @@ namespace WhatsTheKey
 
             var layoutElement = parent.GetComponent<LayoutElement>();
             if (layoutElement != null)
+            {
+                label.ForceMeshUpdate();
                 layoutElement.preferredWidth = KeySearch.GetMenuWidth(label.GetPreferredValues(text).x);
+            }
 
             return label;
         }

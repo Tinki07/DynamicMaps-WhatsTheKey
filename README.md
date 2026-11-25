@@ -4,6 +4,8 @@ Add-on for [DynamicMaps](https://github.com/acidphantasm/SPT-DynamicMaps).
 
 Right-click a locked door on the map to search its key on the flea market.
 
+![Right-click menu on a locked door](images/menu.png)
+
 - Works out of raid, from the map in the character screen
 - Uses the same search as the "Filter by item" item action, so it also works for keys you can't buy yet
 - Going back from the flea market brings you back to the map
